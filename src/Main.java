@@ -5,59 +5,57 @@ public class Main {
 
         int clientOS = 1;
         if (clientOS == 0) {
-            System.out.println("Установите версию для IOS по ссылке");
+            System.out.println("Установите версию приложения для IOS по ссылке");
         } else {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
-
         System.out.println("Задача № 2");
+        // Исправлено: Вывод сообщения соответствует шаблону.
 
         int clientOS2 = 1;
-        int clientDeviceYear = 2015;
+        int clientDeviceYear = 2014;
 
-        if (clientOS2 == 0) {
-            if (clientDeviceYear >= 2015) {
-                System.out.println("Установите версию версию для IOS по ссылке");
-            } else {
-                System.out.println("Установите облегченную версию версию для IOS по ссылке");
-            }
-        } else if (clientOS2 == 1) {
-            if (clientDeviceYear >= 2015) {
-                System.out.println("Установите версию версию для Android по ссылке");
-            } else {
-                System.out.println("Установите облегченную версию версию для Android по ссылке");
-            }
+        if (clientOS2 == 0 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для IOS по ссылке");
+        } else if (clientOS2 == 0 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для IOS по ссылке");
+        } else if (clientOS2 == 1 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        } else if (clientOS2 == 1 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
+        //Исправлено: Уменьшена вложенность условий, так как она превышала допустимый уровень.
 
         System.out.println("Задача № 3");
 
         int year = 2025;
 
-        if (year > 1584) {
-            if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
-                System.out.println(year + " год является високосным");
-            } else {
-                System.out.println(year + " год не является високосным");
-            }
+        if (year > 1584 && ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))) {
+            System.out.println(year + " год является високосным");
+        } else if (year > 1584) {
+            System.out.println(year + " год не является високосным");
         } else {
             System.out.println("Год не может быть меньше 1585");
         }
+        // Исправлено: устранена избыточная вложенность условий.
 
         System.out.println("Задача № 4");
 
-        int deliveryDistance = 95;
+        int deliveryDistance = 19;
         int deliveryDay = 1;
 
         if (deliveryDistance > 100) {
             System.out.println("Доставки нет");
-        } else if (deliveryDistance <= 20) {
-            deliveryDay++;
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+            return;
+        } else if (deliveryDistance < 20) {
+            deliveryDay = 1;
+        } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
             deliveryDay += 1;
         } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
             deliveryDay += 2;
         }
         System.out.println("Потребуется дней:" + deliveryDay);
+
 
         System.out.println("Задача № 5");
 
@@ -88,6 +86,6 @@ public class Main {
         }
 
     }
-}
 
+}
 
